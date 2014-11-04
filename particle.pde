@@ -1,0 +1,6 @@
+class particle{
+
+  color c;
+  
+
+}
