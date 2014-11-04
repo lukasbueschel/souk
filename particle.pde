@@ -1,10 +1,10 @@
-class particle{
+class Particle{
 
   color c;
   
   float velo;
   
-  particle(){
+  Particle(){
   }
 
 }

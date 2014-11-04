@@ -1,8 +1,8 @@
 // generates and holds the particles
 
-class particleManager{
+class ParticleManager{
  
- particleManager(){
+ ParticleManager(){
  }
 
  
