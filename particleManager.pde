@@ -26,8 +26,8 @@ class ParticleManager{
     println(count);
     for(int i = 0; i < count; ++i) {
       PVector pos = new PVector(width/2, height/2);//new PVector(width*i/count, height);
-      PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
-      particles[i] = new Particle(pos, vel);
+      //PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
+      particles[i] = new Particle(pos, Math.random(), Math.random()); 
     }
   }
    
