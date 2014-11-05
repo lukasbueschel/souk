@@ -2,6 +2,7 @@ Environment environment;
 ParticleManager particleManager;
 double temperature = 26f;
 PGraphics tintLayer;
+PShape mapLayer;
 float t=540;
 int decayRate = 20;    // Trails: 0=last forever, 255=die instantly.
 
@@ -39,7 +40,7 @@ void setup() {
   tintLayer.endDraw();
 
   xScale = width / svgWidth;
-  yScale = height / svgHeight;
+  yScale = xScale;
 
   path = new Path();
 
@@ -75,13 +76,18 @@ void setup() {
 
   path.addPoint(360,454.001);
   path.addPoint(359.333,523.668);
+  
+  // setup map
+  mapLayer = loadShape("maplayer.svg");
 }
  
 void draw() {
   image(tintLayer, 0, 0);
   environment.update();
   path.display();
-  particleManager.updatePositions();  
+  particleManager.updatePositions();
+  
+  shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);
 }
 
 //// SCREENSHOT
