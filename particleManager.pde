@@ -11,8 +11,6 @@ class ParticleManager{
 
   //float delta;
   float cx = 1, cy=1;
-  // Effect of passage of time (0 = static field)
-  float t = 0;
    
   ParticleManager() {
     deploymentPoints = new PVector[3];
@@ -22,7 +20,6 @@ class ParticleManager{
     
     particles = new ArrayList<Particle>();
     deploy();
-    t = 0;
   }
       
   void deploy() {
@@ -44,11 +41,14 @@ class ParticleManager{
    
   //checks for Possible Needs depending on time
   void checkForNeeds(){
+    println(t);
     // wenn t = 9:00; 12:00, 18:00: HUNGER
     //kurz danach: KLO
     // wenn temperature rises: slower, weniger
-    if ((t >= 450 && t <= 510) || (t >= 750 && t <= 810) || (t >= 1050 && t <= 1110)){ 
-      //Hunger
+    if ((t >= 450f && t <= 510f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
+      for(int i = 0; i < particles.length; ++i) {
+        particles[i].changeNeed("hunger"); 
+      }
     }   
   }
 }

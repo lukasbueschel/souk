@@ -193,5 +193,11 @@ class Particle {
       location.y = p.getStart().y + (location.y-p.getEnd().y);
     }
   }
+  
+  
+  void changeNeed(String need){
+    println(need);
+    this.need = needs.get(need);
+  }
 }
 

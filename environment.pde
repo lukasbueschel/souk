@@ -13,7 +13,7 @@ class Environment{
 
   void update(){
     //Time running: 60 min --> +=1
-    t += 0.1;
+    t += 1;
     if (t > 1440){
       t = 0;
     }
