@@ -7,6 +7,8 @@ PShape mapLayer;
 float t=540;
 int decayRate = 20;    // Trails: 0=last forever, 255=die instantly.
 
+int killRate = 30;
+
 Path path;
 float svgWidth = 841.89;
 float svgHeight = 595.28;
@@ -91,7 +93,8 @@ void draw() {
   particleManager.updatePositions();
   
   shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);
-  if (millis() % 30 == 0) particleManager.kill();
+  if (killRate == 1) particleManager.kill(true);
+  else if (millis() % killRate == 0) particleManager.kill(false);
 }
 
 //// SCREENSHOT

@@ -196,7 +196,7 @@ class Particle {
   
   
   void changeNeed(String need){
-    println(need);
+    // println(need);
     this.need = needs.get(need);
     // this.maxspeed = (float) Math.random() + this.need.getAccel();
   }

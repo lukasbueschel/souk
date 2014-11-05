@@ -1,7 +1,7 @@
 // generates and holds the particles
+int numParticleMax = 300;
 
 class ParticleManager{
-  int numParticleMax = 300;
   float magnitude = 3;    // How strong the Perlin vector field is
   float timeDelta = 0.01; // Higher value -> faster temporal change  
   // noiseOffset = whatever the Z coordinate passed to noise(...) is
@@ -33,7 +33,7 @@ class ParticleManager{
     }
   }
 
-  void kill() {
+  void kill(boolean all) {
     Particle killMe = null;
 
     float xMin = 240 * xScale;
@@ -42,11 +42,16 @@ class ParticleManager{
     float yMax = 525 * yScale;
 
     // get candidate for removal
-    for (Particle p : particles) {
-      PVector pLoc = p.location;
-      if ((pLoc.x < xMin) || (pLoc.x > xMax) || (pLoc.y < yMin) || (pLoc.y > yMax)) {
-        killMe = p;
-        break;
+    if ((all) && (particles.size() > 1)) {
+      killMe = particles.get((int)(Math.random() * particles.size()));
+    }
+    else {
+      for (Particle p : particles) {
+        PVector pLoc = p.location;
+        if ((pLoc.x < xMin) || (pLoc.x > xMax) || (pLoc.y < yMin) || (pLoc.y > yMax)) {
+          killMe = p;
+          break;
+        }
       }
     }
     if (killMe != null) particles.remove(killMe);

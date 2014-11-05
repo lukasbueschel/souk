@@ -41,6 +41,8 @@ class Environment{
   void updateTemp(){
     if (t <= 480 || t>=1080){ 
       sundegree = 0;
+      numParticleMax = 0;
+      killRate = 1;
     }
     if (t <= 480 || t>=1350 ){
       temperature = 26;
@@ -49,13 +51,19 @@ class Environment{
       if (t <= 780){
         temperature = map(t, 480, 780, 26, 32);
         sundegree = map(t, 480, 780, 0, 90);
+        numParticleMax = 300;
+        killRate = 30;
       }    
       else{ 
         if (t>1080 && t < 1350){
           temperature = map(t, 1080, 1350, 32, 26);
+          numParticleMax = 300;
+          killRate = 30;
         } 
         else if(t>780 && t<1080){
           temperature = 32;
+          numParticleMax = 100;
+          killRate = 2;
         }
         if (t < 1080){
           sundegree = map(t, 780, 1350, 90, 0);
