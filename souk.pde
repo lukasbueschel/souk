@@ -1,5 +1,6 @@
 Environment environment;
 ParticleManager particleManager;
+double temperature = 26f;
 PGraphics tintLayer;
 float t=540;
 int decayRate = 20;    // Trails: 0=last forever, 255=die instantly.

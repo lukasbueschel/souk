@@ -4,7 +4,6 @@
 
 class Environment{
   
-  double temperature = 26.0f;
   float sundegree = 0;
 
   Environment(){
@@ -13,27 +12,28 @@ class Environment{
 
 
   void update(){
+    //Time running: 60 min --> +=1
     t += 0.1;
     if (t > 1440){
       t = 0;
-      temperature = 26;
     }
+    
     updateTemp();
-    checkForNeeds();
     //checkForDeployment();
     draw();
   }
+  
   void draw(){
+    //time, temp and degrees on screen
     textSize(32);
     fill(0, 102, 153);
     String ti = (int)(t/60) +":"+(int)(t%60);
     text(ti, 10, 60);
     text("Temp. "+(int)temperature+"°", 10, 120);
     text("Sun. "+ (int)sundegree+"°", 10, 180);
-    
-    
   }
   
+  //calculates Temp and Sundegrees, depending on time
   void updateTemp(){
     if (t <= 480 || t>=1080){ 
       sundegree = 0;
@@ -55,14 +55,9 @@ class Environment{
         }
       }
     }
-  temperature = temperature+ random(0.2);   
-      
+    temperature = temperature+ random(0.2);
   
   }
   
-  void checkForNeeds(){
-    // wenn t = 9:00; 12:00, 18:00: HUNGER
-    // wenn t = 9:20; 12:20, 18:20: KLO
-    // wenn temperature rises: slower, weniger
-  }
+
 }

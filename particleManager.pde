@@ -33,23 +33,22 @@ class ParticleManager{
    
 
    
-  // Pass any extra forces as an argument
   void updatePositions() {
+    checkForNeeds();
     for(int i = 0; i < particles.length; ++i) {
       particles[i].follow(path);
       particles[i].run();
     }
   }
    
-//  void drawLines() {
-//    for(int i = 0; i < particles.length; ++i) {
-//      PVector old = particles[i].oldPosition;
-//      PVector now = particles[i].position;
-//      stroke(particles[i].h, 127, 255);
-//      line(old.x, old.y, now.x, now.y);
-//    }   
-//  }
-   
-
+  //checks for Possible Needs depending on time
+  void checkForNeeds(){
+    // wenn t = 9:00; 12:00, 18:00: HUNGER
+    //kurz danach: KLO
+    // wenn temperature rises: slower, weniger
+    if ((t >= 450 && t <= 510) || (t >= 750 && t <= 810) || (t >= 1050 && t <= 1110)){ 
+      //Hunger
+    }   
+  }
 }
 
