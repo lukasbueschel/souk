@@ -37,16 +37,16 @@ class Path {
   // Draw the path
   void display() {
     // Draw thick line for radius
-    stroke(175);
-    strokeWeight(radius*2);
-    noFill();
-    beginShape();
-    for (PVector v : points) {
-      vertex(v.x, v.y);
-    }
-    endShape();
+    // stroke(175);
+    // strokeWeight(radius*2);
+    // noFill();
+    // beginShape();
+    // for (PVector v : points) {
+    //   vertex(v.x, v.y);
+    // }
+    // endShape();
     // Draw thin line for center of path
-    stroke(0);
+    stroke(200);
     strokeWeight(1);
     noFill();
     beginShape();
