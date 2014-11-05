@@ -1,7 +1,6 @@
 // generates and holds the particles
 
 class ParticleManager{
-  int numParticleSpawn = 100;
   int numParticleMax = 300;
   float magnitude = 3;    // How strong the Perlin vector field is
   float timeDelta = 0.01; // Higher value -> faster temporal change  
@@ -20,24 +19,15 @@ class ParticleManager{
     deploymentPoints[2] = new PVector((int)(359 * xScale), (int)(523 * yScale)); // bottom
     
     particles = new ArrayList<Particle>();
-    // deploy();
+    // we need at least one particle
+    spawn();
   }
       
-  void deploy() {
-    for(int i = 0; i < deploymentPoints.length; i++) {
-      for(int j = 0; j < numParticleSpawn; ++j) {
-        float speed = (float)Math.random();
-        // fire particles at the bottom upward
-        if (i == 2) speed = -speed;
-        particles.add(new Particle(deploymentPoints[i], speed, (float)Math.random())); 
-      }
-    }
-  }
-
   void spawn() {
     if (particles.size() < numParticleMax) {
       float speed = (float)Math.random();
       int deploymentPointNumber = floor(map((float)(Math.random()), 0.0, 1.0, 0.0, 2.9));
+      // fire particles at the bottom upward
       if (deploymentPointNumber == 2) speed = -speed;
       particles.add(new Particle(deploymentPoints[deploymentPointNumber], speed, (float)Math.random())); 
     }
