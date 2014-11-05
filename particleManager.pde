@@ -14,19 +14,21 @@ class ParticleManager{
    
   ParticleManager() {
     deploymentPoints = new PVector[3];
-    deploymentPoints[0] = new PVector((int)(333 * xScale), (int)(70 * yScale));
-    deploymentPoints[1] = new PVector((int)(502 * xScale), (int)(75 * yScale));
-    deploymentPoints[2] = new PVector((int)(359 * xScale), (int)(523 * yScale));
+    deploymentPoints[0] = new PVector((int)(333 * xScale), (int)(70 * yScale)); // top left
+    deploymentPoints[1] = new PVector((int)(502 * xScale), (int)(75 * yScale)); // top right
+    deploymentPoints[2] = new PVector((int)(359 * xScale), (int)(523 * yScale)); // bottom
     
     particles = new ArrayList<Particle>();
     deploy();
   }
       
   void deploy() {
-    for(PVector dPoint : deploymentPoints) {
-      for(int i = 0; i < numParticleSpawn; ++i) {
-        //PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
-        particles.add(new Particle(dPoint, (float)Math.random()+3, (float)Math.random())); 
+    for(int i = 0; i < deploymentPoints.length; i++) {
+      for(int j = 0; j < numParticleSpawn; ++j) {
+        float speed = (float)Math.random();
+        // fire particles at the bottom upward
+        if (i == 2) speed = -speed;
+        particles.add(new Particle(deploymentPoints[i], speed, (float)Math.random())); 
       }
     }
   }

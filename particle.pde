@@ -24,7 +24,7 @@ class Particle {
     maxspeed = ms;
     maxforce = mf;
     acceleration = new PVector(0, 0);
-    velocity = new PVector(maxspeed, 0);
+    velocity = new PVector(0, maxspeed);
     need = needs.get("shopping");
   }
 
