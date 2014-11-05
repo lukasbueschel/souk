@@ -30,8 +30,8 @@ void setup() {
   // ---- Boilerplate ----
   //frameRate(60);
 
-  xScale = width / svgWidth;
-  yScale = xScale;
+  yScale = height / svgHeight;
+  xScale = yScale;
 
   needManager = new NeedManager();
   particleManager = new ParticleManager();
