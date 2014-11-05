@@ -1,5 +1,6 @@
 Environment environment;
 ParticleManager particleManager;
+NeedManager needManager;
 double temperature = 26f;
 PGraphics tintLayer;
 PShape mapLayer;
@@ -25,10 +26,14 @@ void setup() {
   
   strokeWeight(0.5);
   stroke(255);
-  colorMode(HSB, 255);
+  //colorMode(HSB, 255);
   // ---- Boilerplate ----
   //frameRate(60);
-  
+
+  xScale = width / svgWidth;
+  yScale = height / svgHeight;
+
+  needManager = new NeedManager();
   particleManager = new ParticleManager();
   
   // The tint layer is just black with an alpha channel.
@@ -39,9 +44,12 @@ void setup() {
   tintLayer.background(255,decayRate);
   tintLayer.endDraw();
 
+<<<<<<< HEAD
   xScale = width / svgWidth;
   yScale = xScale;
 
+=======
+>>>>>>> FETCH_HEAD
   path = new Path();
 
   path.addPoint(333,70);
