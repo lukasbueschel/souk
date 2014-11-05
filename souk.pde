@@ -51,7 +51,7 @@ void draw() {
   particleManager.updatePositions();
   image(tintLayer, 0, 0);
   // Draw new lines on top of this.
-  particleManager.drawLines();
+  //particleManager.drawLines();
   t += 0.05;
   path.display();
   

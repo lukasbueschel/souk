@@ -27,7 +27,7 @@ class ParticleManager{
     for(int i = 0; i < count; ++i) {
       PVector pos = new PVector(width/2, height/2);//new PVector(width*i/count, height);
       //PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
-      particles[i] = new Particle(pos, Math.random(), Math.random()); 
+      particles[i] = new Particle(pos, (float)Math.random(), (float)Math.random()); 
     }
   }
    
@@ -39,7 +39,7 @@ class ParticleManager{
       PVector[] forces = new PVector[2];
       forces[0] = new PVector((int)Math.random(), (int)Math.random()*100);
       forces[1] = new PVector((int)Math.random(), (int)Math.random());
-      particles[i].perturb(forces);
+      particles[i].update();
     }
     
     t += timeDelta;
