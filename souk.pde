@@ -86,5 +86,5 @@ void draw() {
 
 //// SCREENSHOT
 void mouseClicked() {
-  save("sketch_" + year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second() + ".jpg");
+  save("x_sketch_" + year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second() + ".jpg");
 }
