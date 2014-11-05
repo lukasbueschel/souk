@@ -84,6 +84,7 @@ void setup() {
 }
  
 void draw() {
+  particleManager.spawn();
   image(tintLayer, 0, 0);
   environment.update();
   path.display();

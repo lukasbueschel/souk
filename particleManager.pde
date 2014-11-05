@@ -2,6 +2,7 @@
 
 class ParticleManager{
   int numParticleSpawn = 100;
+  int numParticleMax = 300;
   float magnitude = 3;    // How strong the Perlin vector field is
   float timeDelta = 0.01; // Higher value -> faster temporal change  
   // noiseOffset = whatever the Z coordinate passed to noise(...) is
@@ -19,7 +20,7 @@ class ParticleManager{
     deploymentPoints[2] = new PVector((int)(359 * xScale), (int)(523 * yScale)); // bottom
     
     particles = new ArrayList<Particle>();
-    deploy();
+    // deploy();
   }
       
   void deploy() {
@@ -30,6 +31,15 @@ class ParticleManager{
         if (i == 2) speed = -speed;
         particles.add(new Particle(deploymentPoints[i], speed, (float)Math.random())); 
       }
+    }
+  }
+
+  void spawn() {
+    if (particles.size() < numParticleMax) {
+      float speed = (float)Math.random();
+      int deploymentPointNumber = floor(map((float)(Math.random()), 0.0, 1.0, 0.0, 2.9));
+      if (deploymentPointNumber == 2) speed = -speed;
+      particles.add(new Particle(deploymentPoints[deploymentPointNumber], speed, (float)Math.random())); 
     }
   }
 
