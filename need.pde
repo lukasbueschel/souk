@@ -4,12 +4,13 @@ class Need{
   color fillColor;
   color strokeColor;
   PVector[] goals;
-  float decelleration; 
+  float acceleration; 
   
-  Need(String n, color fC, color sC){
+  Need(String n, color fC, color sC, float accel){
     this.name = n;
     this.fillColor = fC;
     this.strokeColor = sC;
+    this.acceleration = accel; 
   }
   
   color getFill(){
@@ -24,8 +25,8 @@ class Need{
     return this.name;
   }
   
-  float getDecell(){
-    return this.decelleration;
+  float getAccel(){
+    return this.acceleration;
   }
   
 }

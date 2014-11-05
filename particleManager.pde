@@ -63,12 +63,22 @@ class ParticleManager{
   //checks for Possible Needs depending on time
   void checkForNeeds(){
     
+    //random needs
     int val = (int)random(particles.size());
     particles.get(val).changeNeed(needManager.getRandomNeed().getName());
     
+        
+    // dependent needs    
+    // Temperaturabhängiges Verhalten
+    if (temperature >= 31){ 
+      for(Particle p : particles){
+        if (particles.indexOf(p)%100 == millis()%100)
+          p.changeNeed("heat");
+      }
+   }
     
     // wenn t = 9:00; 12:00, 18:00: HUNGER
-    if ((t >= 540f && t <= 600f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
+    else if ((t >= 540f && t <= 600f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
       for(Particle p : particles){
         if (particles.indexOf(p)%100 == millis()%100)
           p.changeNeed("hunger");
@@ -76,12 +86,13 @@ class ParticleManager{
     }   
     
     // wenn t = 9:00; 12:00, 18:00: TOILETTE
-    else if ((t >= 490f && t <= 550f) || (t >= 680f && t <= 740f) || (t >= 1090f && t <= 1150f)){ 
+    else if ((t >= 650f && t <= 700f) || (t >= 830f && t <= 900f) || (t >= 1090f && t <= 1150f)){ 
       for(Particle p : particles){
         if (particles.indexOf(p)%100 == millis()%100)
           p.changeNeed("toilet");
       }
    }
+
    else {
      for(Particle p : particles){
         if (particles.indexOf(p)%100 == millis()%100)
