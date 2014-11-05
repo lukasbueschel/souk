@@ -42,9 +42,39 @@ void setup() {
   yScale = height / svgHeight;
 
   path = new Path();
+
+  path.addPoint(333,70);
+  path.addPoint(356,153);
+  path.addPoint(405.5,221);
+
+  path.addPoint(500.25,211.432);
   path.addPoint(502.75,75.784);
   path.addPoint(500.25,211.432);
   path.addPoint(637.25,209.001);
+  path.addPoint(500.25,211.432);
+  path.addPoint(497.334,264);
+
+  path.addPoint(405.32,266.667);
+  path.addPoint(405.5,221);
+  path.addPoint(405.32,266.667);
+
+  path.addPoint(405.025,341.502);
+  path.addPoint(230,334.334);
+  path.addPoint(405.025,341.502);
+  path.addPoint(636,335.473);
+  path.addPoint(405.025,341.502);
+  path.addPoint(375,363.334);
+
+  path.addPoint(376.5,436);
+  path.addPoint(233.75,446.25);
+  path.addPoint(376.5,436);
+  path.addPoint(396,441.001);
+  path.addPoint(640.5,428.5);
+  path.addPoint(396,441.001);
+  path.addPoint(376.5,436);
+
+  path.addPoint(360,454.001);
+  path.addPoint(359.333,523.668);
 }
  
 void draw() {
