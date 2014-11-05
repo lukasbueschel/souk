@@ -6,7 +6,6 @@ class ParticleManager{
   float timeDelta = 0.01; // Higher value -> faster temporal change  
   // noiseOffset = whatever the Z coordinate passed to noise(...) is
   // How far off the screen it can go before being dead
-  int borders= 50;
   Particle[] particles;
   PVector deploymentPoint;
 
@@ -27,7 +26,7 @@ class ParticleManager{
     println(count);
     for(int i = 0; i < count; ++i) {
       PVector pos = new PVector(width/2, height/2);//new PVector(width*i/count, height);
-      PVector vel = new PVector(0, 0);
+      PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
       particles[i] = new Particle(pos, vel);
     }
   }
@@ -37,7 +36,10 @@ class ParticleManager{
   // Pass any extra forces as an argument
   void updatePositions() {
     for(int i = 0; i < particles.length; ++i) {
-      particles[i].perturb();
+      PVector[] forces = new PVector[2];
+      forces[0] = new PVector((int)Math.random(), (int)Math.random()*100);
+      forces[1] = new PVector((int)Math.random(), (int)Math.random());
+      particles[i].perturb(forces);
     }
     
     t += timeDelta;
