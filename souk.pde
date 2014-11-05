@@ -28,6 +28,10 @@ void setup() {
   //colorMode(HSB, 255);
   // ---- Boilerplate ----
   //frameRate(60);
+
+  xScale = width / svgWidth;
+  yScale = height / svgHeight;
+
   needManager = new NeedManager();
   particleManager = new ParticleManager();
   
@@ -38,9 +42,6 @@ void setup() {
   tintLayer.beginDraw();
   tintLayer.background(255,decayRate);
   tintLayer.endDraw();
-
-  xScale = width / svgWidth;
-  yScale = height / svgHeight;
 
   path = new Path();
 

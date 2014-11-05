@@ -1,13 +1,13 @@
 // generates and holds the particles
 
 class ParticleManager{
-  int numParticles = 200;
+  int numParticleSpawn = 100;
   float magnitude = 3;    // How strong the Perlin vector field is
   float timeDelta = 0.01; // Higher value -> faster temporal change  
   // noiseOffset = whatever the Z coordinate passed to noise(...) is
   // How far off the screen it can go before being dead
-  Particle[] particles;
-  PVector deploymentPoint;
+  ArrayList<Particle> particles;
+  PVector[] deploymentPoints;
 
   //float delta;
   float cx = 1, cy=1;
@@ -15,29 +15,30 @@ class ParticleManager{
   float t = 0;
    
   ParticleManager() {
-    deploymentPoint = new PVector((int)(width/2), (int)(height/2));
-    particles = new Particle[numParticles];
+    deploymentPoints = new PVector[3];
+    deploymentPoints[0] = new PVector((int)(333 * xScale), (int)(70 * yScale));
+    deploymentPoints[1] = new PVector((int)(502 * xScale), (int)(75 * yScale));
+    deploymentPoints[2] = new PVector((int)(359 * xScale), (int)(523 * yScale));
+    
+    particles = new ArrayList<Particle>();
     deploy();
     t = 0;
   }
       
   void deploy() {
-    int count = particles.length;
-    println(count);
-    for(int i = 0; i < count; ++i) {
-      PVector pos = new PVector(width/2, height/2);//new PVector(width*i/count, height);
-      //PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
-      particles[i] = new Particle(pos, (float)Math.random()+3, (float)Math.random()); 
+    for(PVector dPoint : deploymentPoints) {
+      for(int i = 0; i < numParticleSpawn; ++i) {
+        //PVector vel = new PVector((int)(Math.random()*100-50),(int)(Math.random()*100-50));
+        particles.add(new Particle(dPoint, (float)Math.random()+3, (float)Math.random())); 
+      }
     }
   }
-   
 
-   
   void updatePositions() {
     checkForNeeds();
-    for(int i = 0; i < particles.length; ++i) {
-      particles[i].follow(path);
-      particles[i].run();
+    for(Particle p : particles) {
+      p.follow(path);
+      p.run();
     }
   }
    
@@ -51,4 +52,3 @@ class ParticleManager{
     }   
   }
 }
-
