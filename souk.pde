@@ -5,6 +5,11 @@ float mouseStrength;
 float t=0;
 int decayRate = 20;
 
+Path path;
+float svgWidth = 841.89;
+float svgHeight = 595.28;
+float xScale, yScale;
+
 boolean sketchFullScreen(){
   return true;
 }
@@ -34,6 +39,14 @@ void setup() {
   tintLayer.beginDraw();
   tintLayer.background(255,decayRate);
   tintLayer.endDraw();
+
+  xScale = width / svgWidth;
+  yScale = height / svgHeight;
+
+  path = new Path();
+  path.addPoint(502.75,75.784);
+  path.addPoint(500.25,211.432);
+  path.addPoint(637.25,209.001);
 }
  
 void draw() {
