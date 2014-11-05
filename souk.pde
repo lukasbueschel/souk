@@ -1,7 +1,7 @@
 Environment environment;
 ParticleManager particleManager;
 PGraphics tintLayer;
-float t=0;
+float t=540;
 int decayRate = 20;    // Trails: 0=last forever, 255=die instantly.
 
 Path path;
@@ -47,12 +47,10 @@ void setup() {
 }
  
 void draw() {
-
+  image(tintLayer, 0, 0);
+  environment.update();
   path.display();
   particleManager.updatePositions();
-  image(tintLayer, 0, 0);
-  // Draw new lines on top of this.
-  //particleManager.drawLines();
-  t += 0.05;
+
   
 }
