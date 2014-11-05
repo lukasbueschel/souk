@@ -1,5 +1,6 @@
 Environment environment;
 ParticleManager particleManager;
+NeedManager needManager;
 double temperature = 26f;
 PGraphics tintLayer;
 float t=540;
@@ -24,10 +25,10 @@ void setup() {
   
   strokeWeight(0.5);
   stroke(255);
-  colorMode(HSB, 255);
+  //colorMode(HSB, 255);
   // ---- Boilerplate ----
   //frameRate(60);
-  
+  needManager = new NeedManager();
   particleManager = new ParticleManager();
   
   // The tint layer is just black with an alpha channel.
@@ -81,10 +82,7 @@ void draw() {
   image(tintLayer, 0, 0);
   environment.update();
   path.display();
-  particleManager.updatePositions();  
-}
+  particleManager.updatePositions();
 
-//// SCREENSHOT
-void mouseClicked() {
-  save("x_sketch_" + year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second() + ".jpg");
+  
 }

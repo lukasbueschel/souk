@@ -4,7 +4,7 @@
 
 // Path Following
 
-// Vehicle class
+
 
 class Particle {
 
@@ -12,6 +12,7 @@ class Particle {
   PVector location;
   PVector velocity;
   PVector acceleration;
+  Need need;
   float r;
   float maxforce;    // Maximum steering force
   float maxspeed;    // Maximum speed
@@ -24,6 +25,7 @@ class Particle {
     maxforce = mf;
     acceleration = new PVector(0, 0);
     velocity = new PVector(maxspeed, 0);
+    need = needs.get("shopping");
   }
 
   // Main "run" function
@@ -179,8 +181,8 @@ class Particle {
     // vertex(r, r*2);
     // endShape();
     // popMatrix();
-    fill(175);
-    stroke(0);
+    fill(need.getFill());
+    stroke(need.getStroke());
     ellipse(location.x, location.y, 5, 5);
   }
 
