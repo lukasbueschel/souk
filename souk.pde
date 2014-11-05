@@ -93,7 +93,7 @@ void draw() {
   particleManager.updatePositions();
   
   shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);
-  if (killRate == 1) particleManager.kill(true);
+  if (killRate == 1) particleManager.kill(false);
   else if (millis() % killRate == 0) particleManager.kill(false);
 }
 
