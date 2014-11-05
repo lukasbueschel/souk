@@ -1,65 +1,44 @@
 // generates and holds the particles
 
 class ParticleManager{
-  
- 
-  Particle[] particles;
+  int numParticles = 4000;
+  float magnitude = 3;       // How strong the Perlin vector field is
+  float noiseSize = 0.01; // Higher value -> faster spatial change
+  float timeDelta = 0.01; // Higher value -> faster temporal change  
   // noiseOffset = whatever the Z coordinate passed to noise(...) is
   // to give us a sort-of distinct 2D space of noise
-  float noiseOffset;
-  //float delta;
-  float cx, cy;
+  float noiseOffset = 5000;  
   // How far off the screen it can go before being dead
-  int borders;
-  // Magnitude of the noise
-  float magnitude;
+  int borders= 50;
+  Particle[] particles;
+
+  //float delta;
+  float cx = 1, cy=1;
   // Effect of passage of time (0 = static field)
-  float timeDelta;
-  float t;
+  float t = 0;
    
-  ParticleManager(int count, float magn) {
-    particles = new Particle[count];
-    noiseOffset = 5000;
-    borders = 50;
-    magnitude = magn;
-    timeDelta = 0;
-    cx = 1;
-    cy = 1;
+  ParticleManager() {
+    particles = new Particle[numParticles];
+    setNoiseSize(noiseSize, noiseSize);
+    generateDeploymentPoint();
     t = 0;
   }
    
-  ParticleManager(ParticleManager toCopy) {
-    // Note that we don't copy the particles; it's expected that
-    // you'll generate your own.
-    particles = new Particle[toCopy.particles.length];
-    noiseOffset = toCopy.noiseOffset;
-    cx = toCopy.cx;
-    cy = toCopy.cy;
-    borders = toCopy.borders;
-    magnitude = toCopy.magnitude;
-    timeDelta = toCopy.timeDelta;
-    t = toCopy.t;
-  }
    
   void setNoiseSize(float cx, float cy) {
     this.cx = cx;
     this.cy = cy;
   }
    
-  void setTimeDelta(float d) {
-    timeDelta = d;
-  }
-   
-  void setBorders(int b) {
-    borders = b;
-  }
+
    
   // Generate a row of particles, evenly spaced, at the bottom of the view.
-  void generateBottom() {
+  void generateDeploymentPoint() {
     int count = particles.length;
+    println(count);
     for(int i = 0; i < count; ++i) {
-      PVector pos = new PVector(width*i/count, height);
-      PVector vel = new PVector(0,0);
+      PVector pos = new PVector(width/2, height/2);//new PVector(width*i/count, height);
+      PVector vel = new PVector(width/2,i/count);
       particles[i] = new Particle(pos, vel);
     }
   }
@@ -108,7 +87,7 @@ class ParticleManager{
       PVector pos = particles[i].position;
       if (pos.x < x0 || pos.x > x1 || pos.y < y0 || pos.y > y1) {
         PVector vel = new PVector(0,0);
-        PVector newPos = new PVector(random(0,width), height);
+        PVector newPos = new PVector(random(0,width), height);// new PVector(width/2, height/2);//
         particles[i] = new Particle(newPos, vel);
       }
     }

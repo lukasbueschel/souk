@@ -3,6 +3,7 @@ ParticleManager particleManager;
 PGraphics tintLayer;
 float mouseStrength;
 float t=0;
+int decayRate = 20;
 
 boolean sketchFullScreen(){
   return true;
@@ -10,35 +11,28 @@ boolean sketchFullScreen(){
 
 void setup() {
   
-  size(displayWidth, displayHeight, P2D);
+  size(displayWidth, displayHeight);
   smooth();
-  background(0,0,0);
+  background(255,255,255);
   environment = new Environment();
   // ---- Parameters to tune ----
   
-  int numParticles = 4000;
-  float speed = 3;       // How strong the Perlin vector field is
-  int decayRate = 20;    // Trails: 0=last forever, 255=die instantly.
-  float noiseSize = 0.01; // Higher value -> faster spatial change
-  float timeDelta = 0.01; // Higher value -> faster temporal change
+
   mouseStrength = 1.0;   // How strongly the mouse pushes/pulls
   int borders = 100;     // How far off-screen a particle can go
   strokeWeight(0.5);
   // ---- Boilerplate ----
   //frameRate(60);
-  particleManager = new ParticleManager(numParticles, speed);
-  particleManager.setNoiseSize(noiseSize, noiseSize);
-  particleManager.setTimeDelta(timeDelta);
-  particleManager.setBorders(borders);
-  particleManager.generateBottom();
+  particleManager = new ParticleManager();
   stroke(255);
   colorMode(HSB, 255);
   // The tint layer is just black with an alpha channel.
   // At each frame, it is copied to the existing particle trails,
   // which creates the decay as it gradually is forced to black.
-  tintLayer = createGraphics(width, height, P2D);
+  
+  tintLayer = createGraphics(width, height);
   tintLayer.beginDraw();
-  tintLayer.background(0,decayRate);
+  tintLayer.background(255,decayRate);
   tintLayer.endDraw();
 }
  
