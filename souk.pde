@@ -87,7 +87,7 @@ void draw() {
   if (millis() % 4 == 0) particleManager.spawn();
   image(tintLayer, 0, 0);
   environment.update();
-  path.display();
+  // path.display();
   particleManager.updatePositions();
   
   shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);

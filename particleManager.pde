@@ -39,7 +39,7 @@ class ParticleManager{
     float xMin = 240 * xScale;
     float xMax = 630 * xScale;
     float yMin = 60 * yScale;
-    float yMax = 533 * yScale;
+    float yMax = 525 * yScale;
 
     // get candidate for removal
     for (Particle p : particles) {

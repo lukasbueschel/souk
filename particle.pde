@@ -13,14 +13,13 @@ class Particle {
   PVector velocity;
   PVector acceleration;
   Need need;
-  float r;
+  float radius = 5;
   float maxforce;    // Maximum steering force
   float maxspeed;    // Maximum speed
 
     // Constructor initialize all values
   Particle(PVector l, float ms, float mf) {
     location = l.get();
-    r = 4.0;
     maxspeed = ms;
     maxforce = mf;
     acceleration = new PVector(0, 0);
@@ -182,14 +181,15 @@ class Particle {
     // endShape();
     // popMatrix();
     fill(need.getFill());
-    stroke(need.getStroke());
-    ellipse(location.x, location.y, 5, 5);
+    // stroke(need.getStroke());
+    noStroke();
+    ellipse(location.x, location.y, radius, radius);
   }
 
   // Wraparound
   void borders(Path p) {
-    if (location.x > p.getEnd().x + r) {
-      location.x = p.getStart().x - r;
+    if (location.x > p.getEnd().x + radius) {
+      location.x = p.getStart().x - radius;
       location.y = p.getStart().y + (location.y-p.getEnd().y);
     }
   }
@@ -198,7 +198,7 @@ class Particle {
   void changeNeed(String need){
     println(need);
     this.need = needs.get(need);
-    this.maxspeed = (float) Math.random() + this.need.getAccel();
+    // this.maxspeed = (float) Math.random() + this.need.getAccel();
   }
 }
 
