@@ -62,7 +62,7 @@ class Particle {
       PVector normalPoint = getNormalPoint(predictLoc, a, b);
       // This only works because we know our path goes from left to right
       // We could have a more sophisticated test to tell if the point is in the line segment or not
-      if (normalPoint.x < a.x || normalPoint.x > b.x) {
+      if (normalPoint.x < min(a.x, b.x) || normalPoint.x > max(a.x, b.x)) {
         // This is something of a hacky solution, but if it's not within the line segment
         // consider the normal to just be the end of the line segment (point b)
         normalPoint = b.get();
