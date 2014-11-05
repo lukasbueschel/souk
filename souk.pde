@@ -81,7 +81,10 @@ void draw() {
   image(tintLayer, 0, 0);
   environment.update();
   path.display();
-  particleManager.updatePositions();
+  particleManager.updatePositions();  
+}
 
-  
+//// SCREENSHOT
+void mouseClicked() {
+  save("sketch_" + year() + "-" + month() + "-" + day() + "_" + hour() + "-" + minute() + "-" + second() + ".jpg");
 }
