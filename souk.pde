@@ -53,4 +53,6 @@ void draw() {
   // Draw new lines on top of this.
   particleManager.drawLines();
   t += 0.05;
+
+  path.display();
 }
