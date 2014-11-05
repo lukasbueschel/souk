@@ -86,7 +86,7 @@ void setup() {
 }
  
 void draw() {
-  if (millis() % 4 == 0) particleManager.spawn();
+  if ((millis() % 4 == 0) && (killRate != 1)) particleManager.spawn();
   image(tintLayer, 0, 0);
   environment.update();
   // path.display();
