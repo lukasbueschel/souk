@@ -48,11 +48,6 @@ class ParticleManager{
     particles.get(val).changeNeed(needManager.getRandomNeed().getName());
     
     
-    println(t);
-
-    //kurz danach: KLO
-    // wenn temperature rises: slower, weniger
-    
     // wenn t = 9:00; 12:00, 18:00: HUNGER
     if ((t >= 540f && t <= 600f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
       for(Particle p : particles){

@@ -6,7 +6,6 @@ class Need{
   PVector[] goals;
   float decelleration; 
   
-  
   Need(String n, color fC, color sC){
     this.name = n;
     this.fillColor = fC;
@@ -26,7 +25,7 @@ class Need{
   }
   
   float getDecell(){
-    return this.decelleration
+    return this.decelleration;
   }
   
 }
