@@ -3,6 +3,8 @@ class Need{
   String name;
   color fillColor;
   color strokeColor;
+  PVector[] goals;
+  float decelleration; 
   
   
   Need(String n, color fC, color sC){
@@ -21,6 +23,10 @@ class Need{
   
   String getName(){
     return this.name;
+  }
+  
+  float getDecell(){
+    return this.decelleration
   }
   
 }
