@@ -181,7 +181,7 @@ class Particle {
     // popMatrix();
     fill(175);
     stroke(0);
-    ellipse(location.x, location.y, 10, 10);
+    ellipse(location.x, location.y, 5, 5);
   }
 
   // Wraparound
