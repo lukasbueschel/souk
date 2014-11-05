@@ -26,7 +26,7 @@ class ParticleManager{
   void spawn() {
     if (particles.size() < numParticleMax) {
       float speed = (float)Math.random();
-      int deploymentPointNumber = floor(map((float)(Math.random()), 0.0, 1.0, 0.0, 2.9));
+      int deploymentPointNumber = floor(map((float)(Math.random()), 0.0, 1.0, 0.0, 2.4));
       // fire particles at the bottom upward
       if (deploymentPointNumber == 2) speed = -speed;
       particles.add(new Particle(deploymentPoints[deploymentPointNumber], speed, (float)Math.random())); 
@@ -38,13 +38,13 @@ class ParticleManager{
 
     float xMin = 240 * xScale;
     float xMax = 630 * xScale;
-    float yMin = 320 * yScale;
-    float yMax = 440 * yScale;
+    float yMin = 60 * yScale;
+    float yMax = 533 * yScale;
 
     // get candidate for removal
     for (Particle p : particles) {
       PVector pLoc = p.location;
-      if ((pLoc.x < xMin) || (pLoc.x > xMax)) {
+      if ((pLoc.x < xMin) || (pLoc.x > xMax) || (pLoc.y < yMin) || (pLoc.y > yMax)) {
         killMe = p;
         break;
       }
