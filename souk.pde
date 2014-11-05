@@ -31,7 +31,7 @@ void setup() {
   //frameRate(60);
 
   xScale = width / svgWidth;
-  yScale = height / svgHeight;
+  yScale = xScale;
 
   needManager = new NeedManager();
   particleManager = new ParticleManager();
@@ -44,12 +44,6 @@ void setup() {
   tintLayer.background(255,decayRate);
   tintLayer.endDraw();
 
-<<<<<<< HEAD
-  xScale = width / svgWidth;
-  yScale = xScale;
-
-=======
->>>>>>> FETCH_HEAD
   path = new Path();
 
   path.addPoint(333,70);
