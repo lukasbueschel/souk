@@ -4,6 +4,7 @@ class Need{
   color fillColor;
   color strokeColor;
   
+  
   Need(String n, color fC, color sC){
     this.name = n;
     this.fillColor = fC;
@@ -16,6 +17,10 @@ class Need{
   
   color getStroke(){
     return this.strokeColor;
+  }
+  
+  String getName(){
+    return this.name;
   }
   
 }

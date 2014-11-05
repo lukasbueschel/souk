@@ -3,6 +3,9 @@ import java.util.Map;
 HashMap<String, Need> needs;
 
 class NeedManager{
+  
+  
+  
   NeedManager(){
     needs = new HashMap<String, Need>();
     //yellow
@@ -16,4 +19,11 @@ class NeedManager{
     //red
     needs.put("heat", new Need("heat", color(255, 52, 51), color(179, 0, 0)));
   }  
+  
+  Need getRandomNeed(){
+    ArrayList<String> keysAsArray = new ArrayList<String>(needs.keySet());
+    int r = (int)random(keysAsArray.size());
+    return needs.get(keysAsArray.get(r));
+  }
+  
 }

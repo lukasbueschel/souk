@@ -41,14 +41,38 @@ class ParticleManager{
    
   //checks for Possible Needs depending on time
   void checkForNeeds(){
+    
+    int val = (int)random(particles.size());
+    particles.get(val).changeNeed(needManager.getRandomNeed().getName());
+    
+    
     println(t);
-    // wenn t = 9:00; 12:00, 18:00: HUNGER
+
     //kurz danach: KLO
     // wenn temperature rises: slower, weniger
-    if ((t >= 450f && t <= 510f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
-      for(int i = 0; i < particles.length; ++i) {
-        particles[i].changeNeed("hunger"); 
+    
+    // wenn t = 9:00; 12:00, 18:00: HUNGER
+    if ((t >= 540f && t <= 600f) || (t >= 750f && t <= 810f) || (t >= 1050f && t <= 1110f)){ 
+      for(Particle p : particles){
+        if (particles.indexOf(p)%100 == millis()%100)
+          p.changeNeed("hunger");
       }
     }   
+    
+    // wenn t = 9:00; 12:00, 18:00: TOILETTE
+    else if ((t >= 490f && t <= 550f) || (t >= 680f && t <= 740f) || (t >= 1090f && t <= 1150f)){ 
+      for(Particle p : particles){
+        if (particles.indexOf(p)%100 == millis()%100)
+          p.changeNeed("toilet");
+      }
+   }
+   else {
+     for(Particle p : particles){
+        if (particles.indexOf(p)%100 == millis()%100)
+          p.changeNeed("shopping");
+      }
+    }
   }
+  
+  
 }
