@@ -90,6 +90,7 @@ void draw() {
   particleManager.updatePositions();
   
   shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);
+  if (millis() % 50 == 0) particleManager.kill();
 }
 
 //// SCREENSHOT

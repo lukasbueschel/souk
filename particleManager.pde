@@ -33,6 +33,25 @@ class ParticleManager{
     }
   }
 
+  void kill() {
+    Particle killMe = null;
+
+    float xMin = 240 * xScale;
+    float xMax = 630 * xScale;
+    float yMin = 320 * yScale;
+    float yMax = 440 * yScale;
+
+    // get candidate for removal
+    for (Particle p : particles) {
+      PVector pLoc = p.location;
+      if ((pLoc.x < xMin) || (pLoc.x > xMax)) {
+        killMe = p;
+        break;
+      }
+    }
+    if (killMe != null) particles.remove(killMe);
+  }
+
   void updatePositions() {
     checkForNeeds();
     for(Particle p : particles) {
