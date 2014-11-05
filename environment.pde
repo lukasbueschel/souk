@@ -46,6 +46,7 @@ class Environment{
     }
     if (t <= 480 || t>=1350 ){
       temperature = 26;
+      t = t + 0.5;
     }
     else{ 
       if (t <= 780){
