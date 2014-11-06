@@ -27,17 +27,17 @@ class Environment{
     
     //white background
     fill (255);
-    rect(width-200,480,250,250);
+    rect(0,0,250,250);
     
     //time, temp and degrees on screen
-    textSize(24);
+    textSize(40);
     fill(50);
     String ti = nf((int)(t/60),2)+":"+nf((int)(t%60),2);
 
-    text(ti, width-130, 500);
+    text(ti, 20 * xScale, 110 * yScale);
    
    
-    text((int)temperature+"°", width-60, 500);
+    text((int)temperature+"°",  20 * xScale + 140, 110 * yScale);
     //stroke(0);
     //fill(255, 255, 255, 130);
     //rect(10,80,30,60);
