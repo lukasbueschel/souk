@@ -24,21 +24,34 @@ class Environment{
   }
   
   void draw(){
+    
+    //white background
+    fill (255);
+    rect(width-200,480,250,250);
+    
     //time, temp and degrees on screen
-    textSize(32);
-    fill(0, 102, 153);
-    String ti = (int)(t/60) +":"+(int)(t%60);
-    text(ti, 10, 60);
-    text("Temp. "+(int)temperature+"°", 10, 120);
-    text("Sun. "+ (int)sundegree+"°", 10, 180);
-    
-    
-    //tempDiagram
+    textSize(24);
+    fill(50);
+    String ti = nf((int)(t/60),2)+":"+nf((int)(t%60),2);
+
+    text(ti, width-130, 500);
+   
+   
+    text((int)temperature+"°", width-60, 500);
+    //stroke(0);
+    //fill(255, 255, 255, 130);
+    //rect(10,80,30,60);
+    //float tmap = map((float)((int)(temperature*10))/10, 25, 33, 140, 80);
+    //println(tmap); 
+    //line(10,tmap,40,tmap);
+    //fill(130,130,130);
+    //rect(10,tmap,30,60-tmap);  
     
   }
   
   //calculates Temp and Sundegrees, depending on time
   void updateTemp(){
+    // zwischen 18:00 und 08:00
     if (t <= 480 || t>=1080){ 
       sundegree = 0;
       numParticleMax = 0;
@@ -71,7 +84,7 @@ class Environment{
         }
       }
     }
-    temperature = temperature+ random(0.2);
+    //temperature = temperature+ random(0.2);
   
   }
   

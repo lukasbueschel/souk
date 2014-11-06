@@ -58,10 +58,12 @@ class ParticleManager{
   }
 
   void updatePositions() {
-    checkForNeeds();
-    for(Particle p : particles) {
-      p.follow(path);
-      p.run();
+    if(particles.size()>1){
+      checkForNeeds();
+      for(Particle p : particles) {
+        p.follow(path);
+        p.run();
+      }
     }
   }
    
