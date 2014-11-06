@@ -13,7 +13,7 @@ class Environment{
 
   void update(){
     //Time running: 60 min --> +=1
-    t += 0.3;
+    t += 0.11;
     if (t > 1440){
       t = 0;
     }
@@ -34,10 +34,10 @@ class Environment{
     fill(50);
     String ti = nf((int)(t/60),2)+":"+nf((int)(t%60),2);
 
-    text(ti, 20 * xScale, 110 * yScale);
+    text(ti, 20 * xScale, 130 * yScale);
    
    
-    text((int)temperature+"°",  20 * xScale + 140, 110 * yScale);
+    text((int)temperature+"°",  20 * xScale + 140, 130 * yScale);
     //stroke(0);
     //fill(255, 255, 255, 130);
     //rect(10,80,30,60);
