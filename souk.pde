@@ -85,7 +85,7 @@ void setup() {
   path.addPoint(359.333,523.668);
   
   // setup map
-  mapLayer = loadShape("maplayer.svg");
+  mapLayer = loadShape("data/maplayer.svg");
   
   font = loadFont("Titillium-Light-40.vlw");
   textFont(font);
