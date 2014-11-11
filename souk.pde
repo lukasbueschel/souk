@@ -33,7 +33,7 @@ void setup() {
   stroke(255);
   //colorMode(HSB, 255);
   // ---- Boilerplate ----
-  //frameRate(60);
+  frameRate(60);
 
   yScale = height / svgHeight;
   xScale = yScale;
@@ -101,6 +101,11 @@ void draw() {
   shape(mapLayer, 0, 0, mapLayer.width*xScale, mapLayer.height*yScale);
   if (killRate == 1) particleManager.kill(true);
   else if (millis() % killRate == 0) particleManager.kill(false);
+
+  // export each frame to crate video
+  if (false) {
+    saveFrame("frame#######.jpg");
+  }
 }
 
 //// SCREENSHOT
