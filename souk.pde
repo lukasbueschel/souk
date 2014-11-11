@@ -2,7 +2,7 @@ Environment environment;
 ParticleManager particleManager;
 NeedManager needManager;
 
-PFont myriad_Sb_24;
+PFont font;
 
 double temperature = 26f;
 PGraphics tintLayer;
@@ -87,8 +87,8 @@ void setup() {
   // setup map
   mapLayer = loadShape("maplayer.svg");
   
-  myriad_Sb_24 = loadFont("MyriadPro-Semibold-24.vlw");
-  textFont(myriad_Sb_24);
+  font = loadFont("Titillium-Light-40.vlw");
+  textFont(font);
 }
  
 void draw() {

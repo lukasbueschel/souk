@@ -25,19 +25,22 @@ class Environment{
   
   void draw(){
     
+    float xNull = 655 * xScale;
+    float yNull = 494 * yScale;
+
     //white background
     fill (255);
-    rect(0,0,250,250);
+    rect(xNull - 10, yNull - 60, 250, 100);
     
     //time, temp and degrees on screen
     textSize(40);
-    fill(50);
+    fill(170);
     String ti = nf((int)(t/60),2)+":"+nf((int)(t%60),2);
 
-    text(ti, 20 * xScale, 130 * yScale);
+    text(ti, xNull, yNull);
    
    
-    text((int)temperature+"°",  20 * xScale + 140, 130 * yScale);
+    text((int)temperature+"°",  xNull + 120, yNull);
     //stroke(0);
     //fill(255, 255, 255, 130);
     //rect(10,80,30,60);
