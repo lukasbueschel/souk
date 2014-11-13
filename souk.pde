@@ -23,6 +23,7 @@ boolean sketchFullScreen(){
 
 void setup() {
   
+  // size(1280, 720); // 720p
   size(displayWidth, displayHeight);
   smooth();
   background(255,255,255);
@@ -104,7 +105,7 @@ void draw() {
 
   // export each frame to crate video
   if (false) {
-    saveFrame("frame#######.jpg");
+    saveFrame("frames/frame#######.tif");
   }
 }
 
